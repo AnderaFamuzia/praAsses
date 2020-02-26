@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">praApp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="segitiga">Segitiga</string>
+    <string name="persegi_panjang">Persegi Panjang</string>
+    <string name="panjang">Panjang</string>
+    <string name="lebar">Lebar</string>
+    <string name="hitung">HITUNG</string>
+    <string name="luas">Luas =</string>
+    <string name="keliling">Keliling =</string>
+    <string name="share">SHARE</string>
+</resources>
