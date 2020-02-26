@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import com.example.praapp.databinding.FragmentPersegiPanjangBinding
+import com.example.praapp.databinding.FragmentSegitigaBinding
 import kotlinx.android.synthetic.main.fragment_persegi_panjang.*
 import kotlinx.android.synthetic.main.fragment_segitiga.*
 
@@ -27,18 +30,24 @@ class segitiga : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        button5.setOnClickListener {
-//            textView4.text=getString(R.string.luas)
-//            textView5.text=getString(R.string.keliling)
-//        }
+        val binding: FragmentSegitigaBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_main, container, false)
+
+        b_hitung.setOnClickListener {
+
+            var lebarS = binding.editText.toString().toInt()
+
+            val panjangS = binding.editText2.toString().toInt()
+
+            val luas = lebarS * panjangS / 2
+            val kell = lebarS * panjangS
+
+            binding.textView4.text = "$luas"
+            binding.textView5.text = "$kell"
+        }
         return inflater.inflate(R.layout.fragment_segitiga, container, false)
     }
 
-//    private fun hitung() {
-//        var luas = editText * editText2 / 2
-//        var keliling = textView4 * textView5
-//    }
+
 
 
 }

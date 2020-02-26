@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import com.example.praapp.databinding.ActivityMainBinding
+import com.example.praapp.databinding.FragmentPersegiPanjangBinding
 import kotlinx.android.synthetic.main.fragment_persegi_panjang.*
 
 
@@ -20,20 +23,31 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class persegiPanjang : Fragment() {
-
+    private lateinit var binding: ActivityMainBinding
     @SuppressLint("StringFormatInvalid")
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-//        b_hitung.setOnClickListener {
-//            var luas =tv_lebar * tv_panjang
-//            val kell = tv_lebar * tv_panjang
-//
-//            hasil_luas.text = getString(R.string.luas,luas.hasil_luas)
-//            hasil_kel.text= getString(R.string.keliling,kell.hasil_kel)
-//        }
+        val binding:FragmentPersegiPanjangBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_main, container, false)
+
+        b_hitung.setOnClickListener {
+
+            var lebarP = binding.tvLebar.toString().toInt()
+
+            val panjangP = binding.tvPanjang.toString().toInt()
+
+           val luas = lebarP * panjangP
+            val kell = lebarP * panjangP*2
+
+            binding.hasilLuas.text = "$luas"
+            binding.hasilKel.text = "$kell"
+        }
+
+
+
         return inflater.inflate(R.layout.fragment_persegi_panjang, container, false)
 
     }
